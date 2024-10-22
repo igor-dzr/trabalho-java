@@ -3,41 +3,62 @@ import java.util.Random;
 
 public class App {
 
-    public 
-    public static void main(String[] args) throws Exception {
-    /*     Scanner scan = new Scanner (System.in);
-        int opcoes = scan.nextInt()
+    public static void main(String[] args) {
+        /*
+         * Scanner scan = new Scanner (System.in);
+         * int opcoes = scan.nextInt()
+         * 
+         * switch (opcoes) {
+         * case 1:
+         * 
+         * break;
+         * 
+         * default:
+         * break;
+         * }
+         */
 
-        switch (opcoes) {
-            case 1:
-
-                break;
-
-            default:
-                break;
-        }*/
-
-        int matriz[][] = new int[][] { { 0, 2, 3 }, { 4, 5, 6 }, { 7, 8, 1 } };
+        int matriz[][] = new int[][] { { 1, 2, 0 }, { 4, 5, 6 }, { 7, 8, 3 } };
 
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz.length; coluna++) {
                 if (matriz[linha][coluna] == 0 && linha == 0) {
-                    //if para primeira posição
+                    // if para primeira posição
                     if (coluna == 0) {
                         int dir = matriz[linha][coluna + 1];
                         int baix = matriz[linha + 1][coluna];
                         int sort = new Random().nextInt(0, 2);
                         for (int i = 0; i < matriz.length; i++) {
                             for (int j = 0; j < matriz.length; j++) {
-                                if (sort == 0){
+                                if (sort == 0) {
                                     matriz[linha][coluna] = dir;
-                                    matriz[linha][coluna + 1] = 0;}
-                            if(sort ==1){
-                                matriz[linha][coluna] = baix;
-                                matriz[linha + 1][coluna] =0; 
+                                    matriz[linha][coluna + 1] = 0;
+                                }
+                                if (sort == 1) {
+                                    matriz[linha][coluna] = baix;
+                                    matriz[linha + 1][coluna] = 0;
+                                }
                             }
-                        }}
-                        
+                        }
+
+                    }
+                    if (coluna == 2) {
+                        int esq = matriz[linha][coluna - 1];
+                        int baix = matriz[linha + 1][coluna];
+                        int sort = new Random().nextInt(0, 2);
+                        for (int i = 0; i < matriz.length; i++) {
+                            for (int j = 0; j < matriz.length; j++) {
+                                if (sort == 0) {
+                                    matriz[linha][coluna] = esq;
+                                    matriz[linha][coluna - 1] = 0;
+                                }
+                                if (sort == 1) {
+                                    matriz[linha][coluna] = baix;
+                                    matriz[linha + 1][coluna] = 0;
+                                }
+                            }
+                        }
+
                     }
 
                 }
